@@ -1,8 +1,8 @@
 <adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetWeather_REQUEST/types" name="GetWeather_REQUESTPortType" adapter="REST" wsdlLocation="GetWeather_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   <connection-factory location="cloud/CloudAdapter">
     <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
-      <property name="cloud.adapter.plugin.version" value="24.10"/>
-      <property name="cloud.adapter.sdk.version" value="23.3.5"/>
+      <property name="cloud.adapter.plugin.version" value="25.04.0"/>
+      <property name="cloud.adapter.sdk.version" value="25.04.0"/>
       <property name="connectionUrl" value="%%OPENWEATHERMAP2_connectionUrl"/>
       <property name="csfMap" value="oracle.cloud.adapter"/>
       <property name="csfkey" value="3db7c00cd0529c96c8f061f556c633a09266133790d0bf49d23c1bde1840cb4d"/>
@@ -30,6 +30,7 @@
       <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
       <property name="generateConnectivityPropertiesOutboundResponse" value="RESTOUTRES"/>
       <property name="generatePartnerLink" value="false"/>
+      <property name="generateSecurityPropertiesOutboundRequest" value="SECURITYPROPSRESTOUTREQ"/>
       <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetWeather_REQUEST/types"/>
       <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/cloud/adapter/REST/GetWeather_REQUEST"/>
       <property name="interactionSpecClass" value="oracle.tip.adapter.cloud.CloudInteractionSpec"/>
@@ -39,7 +40,7 @@
       <property name="operations" value="default"/>
       <property name="postQueryParamsAsContent" value="false"/>
       <property name="responseJsonTopLevelArray" value="false"/>
-      <property name="restEndpointDescription" value="Retrieves Weather Data - 470"/>
+      <property name="restEndpointDescription" value="Retrieves Weather Data - 471"/>
     </interaction-spec>
   </endpoint-interaction>
 </adapter-config>
