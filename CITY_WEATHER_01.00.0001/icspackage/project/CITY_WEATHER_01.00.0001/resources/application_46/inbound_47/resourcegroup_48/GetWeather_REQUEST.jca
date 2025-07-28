@@ -1,8 +1,8 @@
 <adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/REST/GetWeather_REQUEST/types" name="GetWeather_REQUESTPortType" adapter="REST" wsdlLocation="GetWeather_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   <connection-factory location="cloud/CloudAdapter">
     <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
-      <property name="cloud.adapter.plugin.version" value="25.04.0"/>
-      <property name="cloud.adapter.sdk.version" value="25.04.0"/>
+      <property name="cloud.adapter.plugin.version" value="25.06.0"/>
+      <property name="cloud.adapter.sdk.version" value="25.06.0"/>
       <property name="connectionUrl" value="%%OPENWEATHERMAP2_connectionUrl"/>
       <property name="csfMap" value="oracle.cloud.adapter"/>
       <property name="csfkey" value="3db7c00cd0529c96c8f061f556c633a09266133790d0bf49d23c1bde1840cb4d"/>
@@ -40,7 +40,7 @@
       <property name="operations" value="default"/>
       <property name="postQueryParamsAsContent" value="false"/>
       <property name="responseJsonTopLevelArray" value="false"/>
-      <property name="restEndpointDescription" value="Retrieves Weather Data - 511"/>
+      <property name="restEndpointDescription" value="Retrieves Weather Data - 512"/>
     </interaction-spec>
   </endpoint-interaction>
 </adapter-config>
