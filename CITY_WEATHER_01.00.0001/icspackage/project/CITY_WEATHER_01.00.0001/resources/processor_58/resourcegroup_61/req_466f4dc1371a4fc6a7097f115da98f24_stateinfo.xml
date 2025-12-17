@@ -7,17 +7,17 @@
     <oracle-xsl-webmapper:StateInfoIsStale>false</oracle-xsl-webmapper:StateInfoIsStale>
     <oracle-xsl-webmapper:SourcesReferenced>
         <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/GetWeatherForCity_REQUEST/types">ns3:execute</element>
-        <uriAbsoluteLocation>file:/tmp/WC/itg_bae4bfe0-0f5a-43c9-a0bb-fbe5f09289bf/resources/application_13/outbound_14/resourcegroup_15/GetWeatherForCity_REQUEST.wsdl</uriAbsoluteLocation>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_ff6f02d0-4ee0-43bb-816b-dc34f909ff90/resources/application_13/outbound_14/resourcegroup_15/GetWeatherForCity_REQUEST.wsdl</uriAbsoluteLocation>
         <primary>true</primary>
     </oracle-xsl-webmapper:SourcesReferenced>
     <oracle-xsl-webmapper:AllSources>
         <element xmlns:ns3="http://xmlns.oracle.com/cloud/adapter/REST/GetWeatherForCity_REQUEST/types">ns3:execute</element>
-        <uriAbsoluteLocation>file:/tmp/WC/itg_bae4bfe0-0f5a-43c9-a0bb-fbe5f09289bf/resources/application_13/outbound_14/resourcegroup_15/GetWeatherForCity_REQUEST.wsdl</uriAbsoluteLocation>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_ff6f02d0-4ee0-43bb-816b-dc34f909ff90/resources/application_13/outbound_14/resourcegroup_15/GetWeatherForCity_REQUEST.wsdl</uriAbsoluteLocation>
         <primary>true</primary>
     </oracle-xsl-webmapper:AllSources>
     <oracle-xsl-webmapper:AllSources>
         <element xmlns:ns3="http://www.oracle.com/2014/03/ic/integration/metadata">ns3:metadata</element>
-        <uriAbsoluteLocation>file:/tmp/WC/itg_bae4bfe0-0f5a-43c9-a0bb-fbe5f09289bf/resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
+        <uriAbsoluteLocation>file:/tmp/WC/itg_ff6f02d0-4ee0-43bb-816b-dc34f909ff90/resources/processor_1/resourcegroup_2/ICSIntegrationMetadata.xsd</uriAbsoluteLocation>
         <param>self</param>
         <primary>false</primary>
     </oracle-xsl-webmapper:AllSources>
