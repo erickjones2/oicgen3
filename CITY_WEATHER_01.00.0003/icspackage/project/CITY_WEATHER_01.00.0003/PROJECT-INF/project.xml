@@ -44,7 +44,7 @@
                 <type>app-adapter</type>
                 <code>OPENWEATHERMAP2</code>
                 <name>GetWeather</name>
-                <description>Retrieves Weather Data - 640</description>
+                <description>Retrieves Weather Data - 641</description>
                 <property name="hasAttachment" value="false"/>
             </adapter>
             <mep>push-sync</mep>
