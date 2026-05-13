@@ -1,0 +1,1281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:icsproject name="project_1" version="10.1" cversion="6" modelType="freeform" xmlns="http://www.oracle.com/2014/03/ics/flow/definition" xmlns:ns2="http://www.oracle.com/2014/03/ics/project/definition" xmlns:ns3="http://www.oracle.com/2014/03/ics/project">
+    <ns2:projectCode>AVN_FTP_FTP_RECEIVE</ns2:projectCode>
+    <ns2:projectVersion>01.00.0000</ns2:projectVersion>
+    <ns2:projectName>AVNISH_FTP FTP Receive</ns2:projectName>
+    <ns2:projectDescription>Receives B2B messages via FTP from Avinsh corp</ns2:projectDescription>
+    <ns2:percentComplete>100</ns2:percentComplete>
+    <ns2:projectHasErrors>false</ns2:projectHasErrors>
+    <ns2:projectHasWarnings>true</ns2:projectHasWarnings>
+    <ns3:icsflow name="flow_1">
+        <application name="application_66">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_B2B_TRANSLATOR_CONN_1851</code>
+                <name>Translate</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_67">
+                <binding>soap</binding>
+                <operation>execute</operation>
+                <resourceGroup name="resourcegroup_68">
+                    <resource name="resource_69" location="../resources/application_66/inbound_67/resourcegroup_68/Translate_REQUEST.jca" type="jca"/>
+                    <resource name="resource_70" location="../resources/application_66/inbound_67/resourcegroup_68/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_71" location="../resources/application_66/inbound_67/resourcegroup_68/Translate_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_73">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_72"/>
+                </input>
+                <output name="output_75">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_74"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_807">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_B2B_TRANSLATOR_CONN_1851</code>
+                <name>Error-Biz-Msg</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_808">
+                <binding>soap</binding>
+                <operation>execute</operation>
+                <resourceGroup name="resourcegroup_809">
+                    <resource name="resource_810" location="../resources/application_807/inbound_808/resourcegroup_809/Error_Biz_Msg_REQUEST.jca" type="jca"/>
+                    <resource name="resource_811" location="../resources/application_807/inbound_808/resourcegroup_809/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_812" location="../resources/application_807/inbound_808/resourcegroup_809/Error_Biz_Msg_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_814">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_813"/>
+                </input>
+                <output name="output_816">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_815"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1189">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>List-Files-in-FTP</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>pull</mep>
+            <inbound name="inbound_1190">
+                <binding>soap</binding>
+                <operation>ListFile</operation>
+                <resourceGroup name="resourcegroup_1191">
+                    <resource name="resource_1194" location="../resources/application_1189/inbound_1190/resourcegroup_1191/List_Files_in_FTP_REQUEST.wsdl" type="wsdl"/>
+                    <resource name="resource_1433" location="../resources/application_1189/inbound_1190/resourcegroup_1191/List_Files_in_FTP_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1434" location="../resources/application_1189/inbound_1190/resourcegroup_1191/ICSFault.xsd" type="xsd"/>
+                </resourceGroup>
+                <input name="input_1196">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1195"/>
+                </input>
+                <output name="output_1198">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1197"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1233">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>Download-One-File</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>pull</mep>
+            <inbound name="inbound_1234">
+                <binding>soap</binding>
+                <operation>DownloadFileToICS</operation>
+                <resourceGroup name="resourcegroup_1235">
+                    <resource name="resource_1238" location="../resources/application_1233/inbound_1234/resourcegroup_1235/Download_One_File_REQUEST.wsdl" type="wsdl"/>
+                    <resource name="resource_1248" location="../resources/application_1233/inbound_1234/resourcegroup_1235/Download_One_File_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1249" location="../resources/application_1233/inbound_1234/resourcegroup_1235/ICSFault.xsd" type="xsd"/>
+                </resourceGroup>
+                <input name="input_1240">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1239"/>
+                </input>
+                <output name="output_1242">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1241"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1290">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>Move-File2</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1291">
+                <binding>soap</binding>
+                <operation>MoveFile</operation>
+                <resourceGroup name="resourcegroup_1292">
+                    <resource name="resource_1293" location="../resources/application_1290/inbound_1291/resourcegroup_1292/Move_File2_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1294" location="../resources/application_1290/inbound_1291/resourcegroup_1292/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1295" location="../resources/application_1290/inbound_1291/resourcegroup_1292/Move_File2_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1297">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1296"/>
+                </input>
+                <output name="output_1299">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1298"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1305">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>Delete-File2</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1306">
+                <binding>soap</binding>
+                <operation>DeleteFile</operation>
+                <resourceGroup name="resourcegroup_1307">
+                    <resource name="resource_1308" location="../resources/application_1305/inbound_1306/resourcegroup_1307/Delete_File2_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1309" location="../resources/application_1305/inbound_1306/resourcegroup_1307/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1310" location="../resources/application_1305/inbound_1306/resourcegroup_1307/Delete_File2_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1312">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1311"/>
+                </input>
+                <output name="output_1314">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1313"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1325">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>Rename-success</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1326">
+                <binding>soap</binding>
+                <operation>MoveFile</operation>
+                <resourceGroup name="resourcegroup_1327">
+                    <resource name="resource_1328" location="../resources/application_1325/inbound_1326/resourcegroup_1327/Rename_success_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1329" location="../resources/application_1325/inbound_1326/resourcegroup_1327/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1330" location="../resources/application_1325/inbound_1326/resourcegroup_1327/Rename_success_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1332">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1331"/>
+                </input>
+                <output name="output_1334">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1333"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1340">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>RAJ_FTP2</code>
+                <name>Delete-File</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1341">
+                <binding>soap</binding>
+                <operation>DeleteFile</operation>
+                <resourceGroup name="resourcegroup_1342">
+                    <resource name="resource_1343" location="../resources/application_1340/inbound_1341/resourcegroup_1342/Delete_File_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1344" location="../resources/application_1340/inbound_1341/resourcegroup_1342/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1345" location="../resources/application_1340/inbound_1341/resourcegroup_1342/Delete_File_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1347">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1346"/>
+                </input>
+                <output name="output_1349">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1348"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1516">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_COLLOCATED_CONN_1741</code>
+                <name>Forward-Functional-Ack2</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1517">
+                <binding>soap</binding>
+                <operation>POST</operation>
+                <resourceGroup name="resourcegroup_1657">
+                    <resource name="resource_1658" location="../resources/application_1516/inbound_1517/resourcegroup_1657/Forward_Functional_Ack2_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1659" location="../resources/application_1516/inbound_1517/resourcegroup_1657/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1660" location="../resources/application_1516/inbound_1517/resourcegroup_1657/Forward_Functional_Ack2_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1523">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1661"/>
+                </input>
+                <output name="output_1525">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1662"/>
+                </output>
+                <output name="output_1664">
+                    <role>fault</role>
+                    <subRole>APIInvocationError</subRole>
+                    <messageContextRef refUri="messagecontext_1663"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1538">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_COLLOCATED_CONN_1741</code>
+                <name>Invoke-Backend-Intg</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1539">
+                <binding>soap</binding>
+                <operation>POST</operation>
+                <resourceGroup name="resourcegroup_1639">
+                    <resource name="resource_1640" location="../resources/application_1538/inbound_1539/resourcegroup_1639/Invoke_Backend_Intg_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1641" location="../resources/application_1538/inbound_1539/resourcegroup_1639/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1642" location="../resources/application_1538/inbound_1539/resourcegroup_1639/Invoke_Backend_Intg_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1545">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1643"/>
+                </input>
+                <output name="output_1547">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1644"/>
+                </output>
+                <output name="output_1646">
+                    <role>fault</role>
+                    <subRole>APIInvocationError</subRole>
+                    <messageContextRef refUri="messagecontext_1645"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1560">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_COLLOCATED_CONN_1741</code>
+                <name>Invoke-Send-Intg</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1561">
+                <binding>soap</binding>
+                <operation>POST</operation>
+                <resourceGroup name="resourcegroup_1562">
+                    <resource name="resource_1565" location="../resources/application_1560/inbound_1561/resourcegroup_1562/Invoke_Send_Intg_REQUEST.wsdl" type="wsdl"/>
+                    <resource name="resource_1752" location="../resources/application_1560/inbound_1561/resourcegroup_1562/Invoke_Send_Intg_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1753" location="../resources/application_1560/inbound_1561/resourcegroup_1562/ICSFault.xsd" type="xsd"/>
+                </resourceGroup>
+                <input name="input_1567">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1566"/>
+                </input>
+                <output name="output_1569">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1568"/>
+                </output>
+                <output name="output_1571">
+                    <role>fault</role>
+                    <subRole>APIInvocationError</subRole>
+                    <messageContextRef refUri="messagecontext_1570"/>
+                </output>
+            </inbound>
+        </application>
+        <application name="application_1577">
+            <role>target</role>
+            <adapter>
+                <type>app-adapter</type>
+                <code>PRESEEDED_B2B_TRANSLATOR_CONN_1851</code>
+                <name>Report-Ack-Delivery-Failure</name>
+                <property name="hasAttachment" value="false"/>
+            </adapter>
+            <mep>push-sync</mep>
+            <inbound name="inbound_1578">
+                <binding>soap</binding>
+                <operation>execute</operation>
+                <resourceGroup name="resourcegroup_1579">
+                    <resource name="resource_1580" location="../resources/application_1577/inbound_1578/resourcegroup_1579/Report_Ack_Delivery_Failure_REQUEST.jca" type="jca"/>
+                    <resource name="resource_1581" location="../resources/application_1577/inbound_1578/resourcegroup_1579/ICSFault.xsd" type="xsd"/>
+                    <resource name="resource_1582" location="../resources/application_1577/inbound_1578/resourcegroup_1579/Report_Ack_Delivery_Failure_REQUEST.wsdl" type="wsdl"/>
+                </resourceGroup>
+                <input name="input_1584">
+                    <role>request</role>
+                    <messageContextRef refUri="messagecontext_1583"/>
+                </input>
+                <output name="output_1586">
+                    <role>response</role>
+                    <messageContextRef refUri="messagecontext_1585"/>
+                </output>
+            </inbound>
+        </application>
+        <processor name="processor_1">
+            <type>messageTracker</type>
+            <role>messageTracker:global</role>
+            <trackingVariableGroup>
+                <trackingVariable>
+                    <role>tracking_var_1</role>
+                    <primary>true</primary>
+                    <name>start Time</name>
+                    <xpath>/schedule/startTime</xpath>
+                    <messageContextRef refUri="messagecontext_11"/>
+                    <output name="output_3">
+                        <messageContextRef refUri="messagecontext_2"/>
+                    </output>
+                </trackingVariable>
+                <trackingVariable>
+                    <role>tracking_var_2</role>
+                    <primary>false</primary>
+                    <name>tracking_var_2</name>
+                    <messageContextRef refUri="messagecontext_11"/>
+                    <output name="output_5">
+                        <messageContextRef refUri="messagecontext_4"/>
+                    </output>
+                </trackingVariable>
+                <trackingVariable>
+                    <role>tracking_var_3</role>
+                    <primary>false</primary>
+                    <name>tracking_var_3</name>
+                    <messageContextRef refUri="messagecontext_11"/>
+                    <output name="output_7">
+                        <messageContextRef refUri="messagecontext_6"/>
+                    </output>
+                </trackingVariable>
+            </trackingVariableGroup>
+        </processor>
+        <processor name="processor_8">
+            <type>scheduleReceive</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_9">
+                <resource name="resource_10" location="../resources/processor_8/resourcegroup_9/ICSSchedule_1.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_12">
+                <messageContextRef refUri="messagecontext_11"/>
+            </output>
+        </processor>
+        <processor name="processor_38">
+            <type>for</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1216">
+                <role>generatedArtifacts</role>
+                <resource name="resource_1217" location="../resources/processor_38/resourcegroup_1216/generated.wsdl" type="wsdl">
+                    <property name="parentRefUri" value="application_1189/inbound_1190/resourcegroup_1191/resource_1194"/>
+                </resource>
+            </resourceGroup>
+            <resourceGroup name="resourcegroup_1439">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1440" location="../resources/processor_38/resourcegroup_1439/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1197">
+                <role>secondary-source</role>
+                <subRole>List-Files-in-FTP</subRole>
+            </resourceRef>
+            <output name="output_1219">
+                <messageContextRef refUri="messagecontext_1218"/>
+            </output>
+            <property name="parallel" value="true"/>
+            <processorName>Each-File</processorName>
+        </processor>
+        <processor name="processor_76">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_79">
+                <resource name="resource_80" location="../resources/processor_76/resourcegroup_79/req_aa1278866a27462b853ceb88e0c90e30.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1259">
+                <role>secondary-source</role>
+                <subRole>Current-B2B-File</subRole>
+            </resourceRef>
+            <input name="input_77">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_78">
+                <messageContextRef refUri="messagecontext_72"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_293">
+            <type>activityStreamLogger</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1437">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1438" location="../resources/processor_293/resourcegroup_1437/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <property name="traceOnly" value="false"/>
+            <processorName>Log-Error2</processorName>
+        </processor>
+        <processor name="processor_312">
+            <type>typeDefinitions</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_313">
+                <resource name="resource_314" location="../resources/processor_312/resourcegroup_313/ICSFault.xsd" type="xsd"/>
+            </resourceGroup>
+            <rootElement elementName="faults" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </processor>
+        <processor name="processor_315">
+            <type>assignment</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1741">
+                <resource name="resource_1742" location="../resources/processor_315/resourcegroup_1741/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <output name="output_319">
+                <messageContextRef refUri="messagecontext_318"/>
+            </output>
+        </processor>
+        <processor name="processor_342">
+            <type>assignment</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1743">
+                <resource name="resource_1744" location="../resources/processor_342/resourcegroup_1743/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <output name="output_355">
+                <messageContextRef refUri="messagecontext_318"/>
+            </output>
+        </processor>
+        <processor name="processor_421">
+            <type>for</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1257">
+                <role>generatedArtifacts</role>
+                <resource name="resource_1258" location="../resources/processor_421/resourcegroup_1257/generated.wsdl" type="wsdl">
+                    <property name="parentRefUri" value="application_1233/inbound_1234/resourcegroup_1235/resource_1238"/>
+                </resource>
+            </resourceGroup>
+            <resourceGroup name="resourcegroup_1263">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1264" location="../resources/processor_421/resourcegroup_1263/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1241">
+                <role>secondary-source</role>
+                <subRole>Download-One-File</subRole>
+            </resourceRef>
+            <output name="output_1260">
+                <messageContextRef refUri="messagecontext_1259"/>
+            </output>
+            <property name="parallel" value="false"/>
+            <processorName>Each-Download</processorName>
+        </processor>
+        <processor name="processor_485">
+            <type>for</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_498">
+                <role>generatedArtifacts</role>
+                <resource name="resource_499" location="../resources/processor_485/resourcegroup_498/generated.wsdl" type="wsdl">
+                    <property name="parentRefUri" value="application_66/inbound_67/resourcegroup_68/resource_71"/>
+                </resource>
+            </resourceGroup>
+            <resourceGroup name="resourcegroup_1265">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1266" location="../resources/processor_485/resourcegroup_1265/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_74">
+                <role>secondary-source</role>
+                <subRole>Translate</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <output name="output_501">
+                <messageContextRef refUri="messagecontext_500"/>
+            </output>
+            <property name="parallel" value="false"/>
+            <processorName>Each-Message-Group</processorName>
+        </processor>
+        <processor name="processor_510">
+            <type>contentBasedRouter</type>
+            <role>router:request-post-es</role>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <input name="input_511">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_512">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1733">
+                    <resource name="resource_1734" location="../resources/processor_510/output_512/resourcegroup_1733/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_517">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_518">
+                    <resource name="resource_519" location="../resources/processor_510/output_517/resourcegroup_518/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_520">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1735">
+                    <resource name="resource_1736" location="../resources/processor_510/output_520/resourcegroup_1735/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_525">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1737">
+                    <resource name="resource_1738" location="../resources/processor_510/output_525/resourcegroup_1737/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_530">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1739">
+                    <resource name="resource_1740" location="../resources/processor_510/output_530/resourcegroup_1739/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+        </processor>
+        <processor name="processor_716">
+            <type>contentBasedRouter</type>
+            <role>router:request-post-es</role>
+            <resourceRef refUri="messagecontext_892">
+                <role>secondary-source</role>
+                <subRole>selfProperties</subRole>
+            </resourceRef>
+            <input name="input_717">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_718">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1406">
+                    <resource name="resource_1407" location="../resources/processor_716/output_718/resourcegroup_1406/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_723">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_724">
+                    <resource name="resource_725" location="../resources/processor_716/output_723/resourcegroup_724/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+        </processor>
+        <processor name="processor_802">
+            <type>catchAll</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_803">
+                <resource name="resource_804" location="../resources/processor_802/resourcegroup_803/ICSFault.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_806">
+                <messageContextRef refUri="messagecontext_805"/>
+            </output>
+        </processor>
+        <processor name="processor_817">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_820">
+                <resource name="resource_821" location="../resources/processor_817/resourcegroup_820/req_39cef2e196f9455e9c89bfad40e37c78.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_805">
+                <role>secondary-source</role>
+                <subRole>Route-to-BackendFaultObject</subRole>
+            </resourceRef>
+            <input name="input_818">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_819">
+                <messageContextRef refUri="messagecontext_813"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_855">
+            <type>assignment</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1745">
+                <resource name="resource_1746" location="../resources/processor_855/resourcegroup_1745/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <output name="output_870">
+                <messageContextRef refUri="messagecontext_318"/>
+            </output>
+        </processor>
+        <processor name="processor_889">
+            <type>integrationProperties</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_890">
+                <resource name="resource_891" location="../resources/processor_889/resourcegroup_890/ICSIntegrationProperties.xsd" type="xsd"/>
+            </resourceGroup>
+            <resourceGroup name="resourcegroup_1401">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1402" location="../resources/processor_889/resourcegroup_1401/Delete-Or-Keep-Processed-Filesexpr.properties" type="properties">
+                    <role>Delete-Or-Keep-Processed-Files</role>
+                </resource>
+                <resource name="resource_1403" location="../resources/processor_889/resourcegroup_1401/Processed-File-Extensionexpr.properties" type="properties">
+                    <role>Processed-File-Extension</role>
+                </resource>
+                <resource name="resource_1404" location="../resources/processor_889/resourcegroup_1401/Move-To-Directoryexpr.properties" type="properties">
+                    <role>Move-To-Directory</role>
+                </resource>
+                <resource name="resource_1405" location="../resources/processor_889/resourcegroup_1401/Error-File-Extensionexpr.properties" type="properties">
+                    <role>Error-File-Extension</role>
+                </resource>
+            </resourceGroup>
+            <output name="output_893">
+                <messageContextRef refUri="messagecontext_892"/>
+            </output>
+        </processor>
+        <processor name="processor_909">
+            <type>catchAll</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_910">
+                <resource name="resource_911" location="../resources/processor_909/resourcegroup_910/ICSFault.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_913">
+                <messageContextRef refUri="messagecontext_912"/>
+            </output>
+        </processor>
+        <processor name="processor_914">
+            <type>activityStreamLogger</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1441">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1442" location="../resources/processor_914/resourcegroup_1441/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <property name="traceOnly" value="false"/>
+            <processorName>Log-File-Level-Error</processorName>
+        </processor>
+        <processor name="processor_979">
+            <type>contentBasedRouter</type>
+            <role>router:request-post-es</role>
+            <resourceRef refUri="messagecontext_892">
+                <role>secondary-source</role>
+                <subRole>selfProperties</subRole>
+            </resourceRef>
+            <input name="input_980">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_981">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1408">
+                    <resource name="resource_1409" location="../resources/processor_979/output_981/resourcegroup_1408/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_986">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_987">
+                    <resource name="resource_988" location="../resources/processor_979/output_986/resourcegroup_987/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+        </processor>
+        <processor name="processor_1199">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1202">
+                <resource name="resource_1203" location="../resources/processor_1199/resourcegroup_1202/req_84d39700bd4d4e5cbc73e885340ae8b2.xsl" type="xslt"/>
+            </resourceGroup>
+            <input name="input_1200">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1201">
+                <messageContextRef refUri="messagecontext_1195"/>
+            </output>
+            <property name="has-mappings" value="false"/>
+        </processor>
+        <processor name="processor_1243">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1246">
+                <resource name="resource_1247" location="../resources/processor_1243/resourcegroup_1246/req_28c02b5ac7854d6794b2539296a54039.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <input name="input_1244">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1245">
+                <messageContextRef refUri="messagecontext_1239"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1300">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1303">
+                <resource name="resource_1304" location="../resources/processor_1300/resourcegroup_1303/req_355ace44ad404b24a3ac795f6d605165.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_892">
+                <role>secondary-source</role>
+                <subRole>selfProperties</subRole>
+            </resourceRef>
+            <input name="input_1301">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1302">
+                <messageContextRef refUri="messagecontext_1296"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1315">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1318">
+                <resource name="resource_1319" location="../resources/processor_1315/resourcegroup_1318/req_82b1e1ed4ed24b96a004943e92d73400.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <input name="input_1316">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1317">
+                <messageContextRef refUri="messagecontext_1311"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1335">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1338">
+                <resource name="resource_1339" location="../resources/processor_1335/resourcegroup_1338/req_75bbd5c8842d4b888441eed5c20a1656.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_892">
+                <role>secondary-source</role>
+                <subRole>selfProperties</subRole>
+            </resourceRef>
+            <input name="input_1336">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1337">
+                <messageContextRef refUri="messagecontext_1331"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1350">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1353">
+                <resource name="resource_1354" location="../resources/processor_1350/resourcegroup_1353/req_846b37a31e7546b7a280bf332acf0126.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <input name="input_1351">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1352">
+                <messageContextRef refUri="messagecontext_1346"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1465">
+            <type>catchAll</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1466">
+                <resource name="resource_1467" location="../resources/processor_1465/resourcegroup_1466/ICSFault.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_1469">
+                <messageContextRef refUri="messagecontext_1468"/>
+            </output>
+        </processor>
+        <processor name="processor_1495">
+            <type>contentBasedRouter</type>
+            <role>router:request-post-es</role>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <input name="input_1496">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1497">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1509">
+                    <resource name="resource_1510" location="../resources/processor_1495/output_1497/resourcegroup_1509/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+            <output name="output_1502">
+                <messageContextRef refUri="messagecontext_11"/>
+                <resourceGroup name="resourcegroup_1503">
+                    <resource name="resource_1504" location="../resources/processor_1495/output_1502/resourcegroup_1503/expr.properties" type="properties"/>
+                </resourceGroup>
+            </output>
+        </processor>
+        <processor name="processor_1572">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1575">
+                <resource name="resource_1576" location="../resources/processor_1572/resourcegroup_1575/req_b114a49bc5754c649cbe6f3b948c5594.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1218">
+                <role>secondary-source</role>
+                <subRole>CurrentFile</subRole>
+            </resourceRef>
+            <input name="input_1573">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1574">
+                <messageContextRef refUri="messagecontext_1566"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1587">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1590">
+                <resource name="resource_1591" location="../resources/processor_1587/resourcegroup_1590/req_be2419bf3da84bba883dbef1e3775a16.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1468">
+                <role>secondary-source</role>
+                <subRole>Deliver-Functional-AckFaultObject</subRole>
+            </resourceRef>
+            <input name="input_1588">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1589">
+                <messageContextRef refUri="messagecontext_1583"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1615">
+            <type>catchAll</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1616">
+                <resource name="resource_1617" location="../resources/processor_1615/resourcegroup_1616/ICSFault.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_1619">
+                <messageContextRef refUri="messagecontext_1618"/>
+            </output>
+        </processor>
+        <processor name="processor_1625">
+            <type>activityStreamLogger</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1632">
+                <role>exprBuilderProperties</role>
+                <resource name="resource_1633" location="../resources/processor_1625/resourcegroup_1632/expr.properties" type="properties"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_11">
+                <role>primary-source</role>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1618">
+                <role>secondary-source</role>
+                <subRole>Forward-Functional-AckFaultObject</subRole>
+            </resourceRef>
+            <resourceRef refUri="messagecontext_1259">
+                <role>secondary-source</role>
+                <subRole>Current-B2B-File</subRole>
+            </resourceRef>
+            <property name="traceOnly" value="false"/>
+            <processorName>Log-Failed-to-Forward-Func-Ack</processorName>
+        </processor>
+        <processor name="processor_1647">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1650">
+                <resource name="resource_1651" location="../resources/processor_1647/resourcegroup_1650/req_35ca155bb65e48e3876940a0c750eeeb.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <input name="input_1648">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1649">
+                <messageContextRef refUri="messagecontext_1643"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1665">
+            <type>transformer</type>
+            <role>transformer:response-map</role>
+            <resourceGroup name="resourcegroup_1668">
+                <resource name="resource_1669" location="../resources/processor_1665/resourcegroup_1668/req_01b94ff27253452999256edeb82baaa7.xsl" type="xslt"/>
+            </resourceGroup>
+            <resourceRef refUri="messagecontext_500">
+                <role>secondary-source</role>
+                <subRole>Current-Message-Group</subRole>
+            </resourceRef>
+            <input name="input_1666">
+                <messageContextRef refUri="messagecontext_11"/>
+            </input>
+            <output name="output_1667">
+                <messageContextRef refUri="messagecontext_1661"/>
+            </output>
+            <property name="has-mappings" value="true"/>
+        </processor>
+        <processor name="processor_1747">
+            <type>integrationMetadata</type>
+            <role>undefined</role>
+            <resourceGroup name="resourcegroup_1748">
+                <resource name="resource_1749" location="../resources/processor_1747/resourcegroup_1748/ICSIntegrationMetadata.xsd" type="xsd"/>
+            </resourceGroup>
+            <output name="output_1751">
+                <messageContextRef refUri="messagecontext_1750"/>
+            </output>
+        </processor>
+        <messageContext name="messagecontext_2">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_4">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_6">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_11">
+            <resourceRef refUri="processor_8/resourcegroup_9/resource_10"/>
+            <rootElement elementName="schedule" namespace="http://www.oracle.com/2014/03/ics/schedule"/>
+        </messageContext>
+        <messageContext name="messagecontext_72">
+            <resourceRef refUri="application_66/inbound_67/resourcegroup_68/resource_71"/>
+            <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Translate_REQUEST/types"/>
+            <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Translate_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_74">
+            <resourceRef refUri="application_66/inbound_67/resourcegroup_68/resource_71"/>
+            <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Translate_REQUEST/types"/>
+            <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Translate_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_318">
+            <rootElement elementName="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+        </messageContext>
+        <messageContext name="messagecontext_500">
+            <resourceRef refUri="processor_485/resourcegroup_498/resource_499"/>
+            <rootElement elementName="msg-group" namespace="http://xmlns.oracle.com/b2b/edi/generic/inbound_translate_response"/>
+        </messageContext>
+        <messageContext name="messagecontext_805">
+            <resourceRef refUri="processor_802/resourcegroup_803/resource_804"/>
+            <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </messageContext>
+        <messageContext name="messagecontext_813">
+            <resourceRef refUri="application_807/inbound_808/resourcegroup_809/resource_812"/>
+            <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Error_Biz_Msg_REQUEST/types"/>
+            <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Error_Biz_Msg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_815">
+            <resourceRef refUri="application_807/inbound_808/resourcegroup_809/resource_812"/>
+            <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Error_Biz_Msg_REQUEST/types"/>
+            <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Error_Biz_Msg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_892">
+            <resourceRef refUri="processor_889/resourcegroup_890/resource_891"/>
+            <rootElement elementName="properties" namespace="http://www.oracle.com/2014/03/ic/integration/properties"/>
+        </messageContext>
+        <messageContext name="messagecontext_912">
+            <resourceRef refUri="processor_909/resourcegroup_910/resource_911"/>
+            <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </messageContext>
+        <messageContext name="messagecontext_1195">
+            <resourceRef refUri="application_1189/inbound_1190/resourcegroup_1191/resource_1194"/>
+            <rootElement elementName="ListFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/List_Files_in_FTP_REQUEST/types"/>
+            <wsdlMessage messageName="ListFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/List_Files_in_FTP_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1197">
+            <resourceRef refUri="application_1189/inbound_1190/resourcegroup_1191/resource_1194"/>
+            <rootElement elementName="ListFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/List_Files_in_FTP_REQUEST/types"/>
+            <wsdlMessage messageName="ListFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/List_Files_in_FTP_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1218">
+            <resourceRef refUri="processor_38/resourcegroup_1216/resource_1217"/>
+            <rootElement elementName="File" namespace="http://xmlns.oracle.com/cloud/list/pull"/>
+        </messageContext>
+        <messageContext name="messagecontext_1239">
+            <resourceRef refUri="application_1233/inbound_1234/resourcegroup_1235/resource_1238"/>
+            <rootElement elementName="DownloadFileToICS" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Download_One_File_REQUEST/types"/>
+            <wsdlMessage messageName="DownloadFileToICSRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Download_One_File_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1241">
+            <resourceRef refUri="application_1233/inbound_1234/resourcegroup_1235/resource_1238"/>
+            <rootElement elementName="DownloadFileToICSResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Download_One_File_REQUEST/types"/>
+            <wsdlMessage messageName="DownloadFileToICSResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Download_One_File_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1259">
+            <resourceRef refUri="processor_421/resourcegroup_1257/resource_1258"/>
+            <rootElement elementName="B2BFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Download_One_File/types"/>
+        </messageContext>
+        <messageContext name="messagecontext_1296">
+            <resourceRef refUri="application_1290/inbound_1291/resourcegroup_1292/resource_1295"/>
+            <rootElement elementName="MoveFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Move_File2_REQUEST/types"/>
+            <wsdlMessage messageName="MoveFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Move_File2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1298">
+            <resourceRef refUri="application_1290/inbound_1291/resourcegroup_1292/resource_1295"/>
+            <rootElement elementName="MoveFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Move_File2_REQUEST/types"/>
+            <wsdlMessage messageName="MoveFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Move_File2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1311">
+            <resourceRef refUri="application_1305/inbound_1306/resourcegroup_1307/resource_1310"/>
+            <rootElement elementName="DeleteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File2_REQUEST/types"/>
+            <wsdlMessage messageName="DeleteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1313">
+            <resourceRef refUri="application_1305/inbound_1306/resourcegroup_1307/resource_1310"/>
+            <rootElement elementName="DeleteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File2_REQUEST/types"/>
+            <wsdlMessage messageName="DeleteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1331">
+            <resourceRef refUri="application_1325/inbound_1326/resourcegroup_1327/resource_1330"/>
+            <rootElement elementName="MoveFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Rename_success_REQUEST/types"/>
+            <wsdlMessage messageName="MoveFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Rename_success_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1333">
+            <resourceRef refUri="application_1325/inbound_1326/resourcegroup_1327/resource_1330"/>
+            <rootElement elementName="MoveFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Rename_success_REQUEST/types"/>
+            <wsdlMessage messageName="MoveFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Rename_success_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1346">
+            <resourceRef refUri="application_1340/inbound_1341/resourcegroup_1342/resource_1345"/>
+            <rootElement elementName="DeleteFile" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File_REQUEST/types"/>
+            <wsdlMessage messageName="DeleteFileRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1348">
+            <resourceRef refUri="application_1340/inbound_1341/resourcegroup_1342/resource_1345"/>
+            <rootElement elementName="DeleteFileResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File_REQUEST/types"/>
+            <wsdlMessage messageName="DeleteFileResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ftp/Delete_File_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1468">
+            <resourceRef refUri="processor_1465/resourcegroup_1466/resource_1467"/>
+            <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </messageContext>
+        <messageContext name="messagecontext_1566">
+            <resourceRef refUri="application_1560/inbound_1561/resourcegroup_1562/resource_1565"/>
+            <rootElement elementName="POST" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST/types"/>
+            <wsdlMessage messageName="POSTRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1568">
+            <resourceRef refUri="application_1560/inbound_1561/resourcegroup_1562/resource_1565"/>
+            <rootElement elementName="POSTResponse" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST/types"/>
+            <wsdlMessage messageName="POSTResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1570">
+            <resourceRef refUri="application_1560/inbound_1561/resourcegroup_1562/resource_1565"/>
+            <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/collocatedics/Invoke-Send-Intg"/>
+            <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST" partName="parameters"/>
+            <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Send_Intg_REQUEST"/>
+        </messageContext>
+        <messageContext name="messagecontext_1583">
+            <resourceRef refUri="application_1577/inbound_1578/resourcegroup_1579/resource_1582"/>
+            <rootElement elementName="execute" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Report_Ack_Delivery_Failure_REQUEST/types"/>
+            <wsdlMessage messageName="executeRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Report_Ack_Delivery_Failure_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1585">
+            <resourceRef refUri="application_1577/inbound_1578/resourcegroup_1579/resource_1582"/>
+            <rootElement elementName="executeResponse" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Report_Ack_Delivery_Failure_REQUEST/types"/>
+            <wsdlMessage messageName="executeResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/ediAdapter/Report_Ack_Delivery_Failure_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1618">
+            <resourceRef refUri="processor_1615/resourcegroup_1616/resource_1617"/>
+            <rootElement elementName="fault" namespace="http://www.oracle.com/2014/03/ics/fault"/>
+        </messageContext>
+        <messageContext name="messagecontext_1643">
+            <resourceRef refUri="application_1538/inbound_1539/resourcegroup_1639/resource_1642"/>
+            <rootElement elementName="POST" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST/types"/>
+            <wsdlMessage messageName="POSTRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1644">
+            <resourceRef refUri="application_1538/inbound_1539/resourcegroup_1639/resource_1642"/>
+            <rootElement elementName="POSTResponse" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST/types"/>
+            <wsdlMessage messageName="POSTResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1645">
+            <resourceRef refUri="application_1538/inbound_1539/resourcegroup_1639/resource_1642"/>
+            <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/collocatedics/Invoke-Backend-Intg"/>
+            <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST" partName="parameters"/>
+            <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Invoke_Backend_Intg_REQUEST"/>
+        </messageContext>
+        <messageContext name="messagecontext_1661">
+            <resourceRef refUri="application_1516/inbound_1517/resourcegroup_1657/resource_1660"/>
+            <rootElement elementName="POST" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST/types"/>
+            <wsdlMessage messageName="POSTRequestMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1662">
+            <resourceRef refUri="application_1516/inbound_1517/resourcegroup_1657/resource_1660"/>
+            <rootElement elementName="POSTResponse" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST/types"/>
+            <wsdlMessage messageName="POSTResponseMessage" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST" partName="parameters"/>
+        </messageContext>
+        <messageContext name="messagecontext_1663">
+            <resourceRef refUri="application_1516/inbound_1517/resourcegroup_1657/resource_1660"/>
+            <rootElement elementName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/generic/rest/fault/collocatedics/Forward-Functional-Ack2"/>
+            <wsdlMessage messageName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST" partName="parameters"/>
+            <wsdlFault faultName="APIInvocationError" namespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST"/>
+        </messageContext>
+        <messageContext name="messagecontext_1750">
+            <resourceRef refUri="processor_1747/resourcegroup_1748/resource_1749"/>
+            <rootElement elementName="metadata" namespace="http://www.oracle.com/2014/03/ic/integration/metadata"/>
+        </messageContext>
+        <commonNamespaceMaps/>
+        <orchestration>
+            <integrationMetadata id="im0" refUri="processor_1747"/>
+            <integrationProperties id="ip0" refUri="processor_889"/>
+            <scheduleReceive trackingRefUri="processor_1" id="sr0" refUri="processor_8"/>
+            <note id="nt1" name="See-Integration-Properties" description="Click on &quot;Schedule&quot; action, then on the pop-up hamburger menu, and select &quot;Edit Integration Properties&quot;. Set the correct Inbound Directory path and other parameters."/>
+            <transformer id="m1" refUri="processor_1199"/>
+            <invoke id="i1" refUri="application_1189"/>
+            <for id="f0" refUri="processor_38">
+                <transformer id="m0" refUri="processor_1243"/>
+                <invoke id="i0" refUri="application_1233"/>
+                <for id="f2" refUri="processor_421">
+                    <label id="l0" name="Initial-State">
+                        <assignment id="a0" refUri="processor_315"/>
+                    </label>
+                    <try id="t2" name="Handle-One-File">
+                        <transformer id="m2" refUri="processor_76"/>
+                        <invoke id="i2" refUri="application_66"/>
+                        <for id="f3" refUri="processor_485">
+                            <router id="s2" refUri="processor_510">
+                                <route id="sc6" refUri="processor_510/output_512">
+                                    <try id="t3" name="Route-to-Backend">
+                                        <transformer id="m5" refUri="processor_1647"/>
+                                        <invoke id="i5" refUri="application_1538"/>
+                                        <catchAll id="ta0" refUri="processor_802">
+                                            <label id="l2" name="Treat-As-File-Error">
+                                                <assignment id="a2" refUri="processor_855"/>
+                                            </label>
+                                            <transformer id="m3" refUri="processor_817"/>
+                                            <invoke id="i3" refUri="application_807"/>
+                                        </catchAll>
+                                    </try>
+                                </route>
+                                <route id="sc8" refUri="processor_510/output_520">
+                                    <try id="t0" name="Deliver-Functional-Ack">
+                                        <transformer id="m4" refUri="processor_1572"/>
+                                        <invoke id="i4" refUri="application_1560"/>
+                                        <catchAll id="ta2" refUri="processor_1465">
+                                            <transformer id="m10" refUri="processor_1587"/>
+                                            <invoke id="i10" refUri="application_1577"/>
+                                        </catchAll>
+                                    </try>
+                                </route>
+                                <route id="sc9" refUri="processor_510/output_525">
+                                    <label id="l1" name="Set-to-error1">
+                                        <assignment id="a1" refUri="processor_342"/>
+                                    </label>
+                                    <activityStreamLogger id="lg1" refUri="processor_293"/>
+                                </route>
+                                <route id="sc10" refUri="processor_510/output_530">
+                                    <note id="nt0" name="Inbound-Functional-Ack" description="No further processing is needed for inbound functional acks. The ack will be parsed, persisted and correlated with the original outbound message automatically. You can view it under B2B Tracking &gt; Business messages view."/>
+                                    <try id="t1" name="Forward-Functional-Ack">
+                                        <router id="s1" refUri="processor_1495">
+                                            <route id="sc2" refUri="processor_1495/output_1497">
+                                                <transformer id="m11" refUri="processor_1665"/>
+                                                <invoke id="i11" refUri="application_1516"/>
+                                            </route>
+                                            <route id="sc3" refUri="processor_1495/output_1502"/>
+                                        </router>
+                                        <catchAll id="ta3" refUri="processor_1615">
+                                            <activityStreamLogger id="lg2" refUri="processor_1625"/>
+                                        </catchAll>
+                                    </try>
+                                </route>
+                                <route id="sc7" refUri="processor_510/output_517"/>
+                            </router>
+                        </for>
+                        <router id="s3" refUri="processor_716">
+                            <route id="sc11" refUri="processor_716/output_718">
+                                <transformer id="m7" refUri="processor_1335"/>
+                                <invoke id="i7" refUri="application_1325"/>
+                            </route>
+                            <route id="sc12" refUri="processor_716/output_723">
+                                <transformer id="m6" refUri="processor_1350"/>
+                                <invoke id="i6" refUri="application_1340"/>
+                            </route>
+                        </router>
+                        <catchAll id="ta1" refUri="processor_909">
+                            <activityStreamLogger id="lg0" refUri="processor_914"/>
+                            <router id="s0" refUri="processor_979">
+                                <route id="sc0" refUri="processor_979/output_981">
+                                    <transformer id="m9" refUri="processor_1300"/>
+                                    <invoke id="i9" refUri="application_1290"/>
+                                </route>
+                                <route id="sc1" refUri="processor_979/output_986">
+                                    <transformer id="m8" refUri="processor_1315"/>
+                                    <invoke id="i8" refUri="application_1305"/>
+                                </route>
+                            </router>
+                        </catchAll>
+                    </try>
+                </for>
+            </for>
+            <stop id="st0"/>
+        </orchestration>
+    </ns3:icsflow>
+</ns3:icsproject>

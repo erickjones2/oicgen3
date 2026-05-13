@@ -1,0 +1,42 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST/types" name="Forward_Functional_Ack2_REQUESTPortType" adapter="collocatedics" wsdlLocation="Forward_Functional_Ack2_REQUEST.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.rest.RestAdapterConnectionFactory">
+      <property name="applicationVersion" value="1.0"/>
+      <property name="cloud.adapter.plugin.version" value="18.1.5"/>
+      <property name="cloud.adapter.sdk.version" value="18.1.5"/>
+      <property name="securityPolicy" value="NONE"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="Forward_Functional_Ack2_REQUESTPortType" operation="POST">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="POST"/>
+      <property name="operationPath" value="/"/>
+      <property name="EndpointPropertiesHandler" value="oracle.cloud.connector.ics.ICSAdapterEndpointPropertiesHandler"/>
+      <property name="HTTPHeadersAdded" value="true"/>
+      <property name="HttpVerb" value="POST"/>
+      <property name="QueryParameters" value=""/>
+      <property name="RequestElementNS" value="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST/types"/>
+      <property name="RequestElementName" value="components.schemas.request-wrapper"/>
+      <property name="RequestMediaType" value="application/json"/>
+      <property name="ResourceName" value="/"/>
+      <property name="ResourceURI" value="/"/>
+      <property name="ResponseElementNS" value="http://xmlns.oracle.com/cloud/adapter/collocatedics/Forward_Functional_Ack2_REQUEST/types"/>
+      <property name="ResponseElementName" value="POST"/>
+      <property name="allowChangeDefaultNamespace" value="false"/>
+      <property name="connectionType" value="openapi"/>
+      <property name="generateConnectivityPropertiesOutboundRequest" value="SKIPOUTREQ"/>
+      <property name="generatePartnerLink" value="false"/>
+      <property name="integration_code" value="BACKEND_PROCESS"/>
+      <property name="integration_created" value="2021-04-22T19:25:27.147+0000"/>
+      <property name="integration_endpointURI" value="/ic/api/integration/v1/flows/rest/BACKEND_PROCESS/1.0/metadata"/>
+      <property name="integration_id" value="BACKEND_PROCESS|01.00.0000"/>
+      <property name="integration_name" value="Backend Process"/>
+      <property name="integration_operation" value="POST"/>
+      <property name="integration_service" value="/"/>
+      <property name="integration_version" value="01.00.0000"/>
+      <property name="interactionSpecClass" value="oracle.tip.adapter.cloud.CloudInteractionSpec"/>
+      <property name="operation" value="POST"/>
+      <property name="resources" value="/"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>
