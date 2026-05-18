@@ -26,6 +26,7 @@
       <property name="copyDescendantTypes" value="true"/>
       <property name="copyDescendantTypesFullTraverse" value="true"/>
       <property name="copyFaultFromModel" value="true"/>
+      <property name="dynamicConnectionEnabled" value="false"/>
       <property name="forceWsdlTypesBuild" value="true"/>
       <property name="generateConnectivityPropertiesOutboundRequest" value="RESTOUTREQ"/>
       <property name="generateConnectivityPropertiesOutboundResponse" value="RESTOUTRES"/>
@@ -40,7 +41,7 @@
       <property name="operations" value="default"/>
       <property name="postQueryParamsAsContent" value="false"/>
       <property name="responseJsonTopLevelArray" value="false"/>
-      <property name="restEndpointDescription" value="Retrieves Weather Data - 724"/>
+      <property name="restEndpointDescription" value="Retrieves Weather Data - 725"/>
     </interaction-spec>
   </endpoint-interaction>
 </adapter-config>
