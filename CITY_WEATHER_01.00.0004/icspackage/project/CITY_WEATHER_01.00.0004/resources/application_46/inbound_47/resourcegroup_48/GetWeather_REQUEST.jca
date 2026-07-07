@@ -41,7 +41,7 @@
       <property name="operations" value="default"/>
       <property name="postQueryParamsAsContent" value="false"/>
       <property name="responseJsonTopLevelArray" value="false"/>
-      <property name="restEndpointDescription" value="Retrieves Weather Data - 740"/>
+      <property name="restEndpointDescription" value="Retrieves Weather Data - 741"/>
     </interaction-spec>
   </endpoint-interaction>
 </adapter-config>
